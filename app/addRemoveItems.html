@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="utf-8">
+    <title>Hello World</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+    <script src="js/addRemoveItemsCtrl.js"></script>
+</head>
+
+<body ng-controller="addRemoveItemsCtrl">
+<ul>
+    <li ng-repeat="item in items">
+        <input type="checkbox" ng-model="item.Selected"/>{{item.Value}}
+    </li>
+</ul>
+<input type="text" name="itemToBeAdded" ng-model="itemToBeAdded"/>
+<input type="button" name="addItem" value="Add" ng-click="addItem()"/>
+<input type="button" name="removeItem" value="Remove" ng-click="removeItem()"/>
+</body>
+
+</html>

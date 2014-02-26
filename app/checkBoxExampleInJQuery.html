@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Check Box Example with jQuery</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+
+</head>
+<body>
+<script>
+        $(function(){
+        $(":checkbox").change(function(){
+            var arr = $(":checkbox:checked").map(function() {
+            return $(this).prev().text(); }).get();
+            $("#itemDiv").text(arr.join(','));
+        });
+        })
+</script>
+
+<label for="checkBoxItem1">Item1: </label><input type="checkbox" id="checkBoxItem1" name="checkBoxItems"/>
+<label for="checkBoxItem2">Item2: </label><input type="checkbox" id="checkBoxItem2" name="checkBoxItems"/>
+
+Selected Contents are
+    <div id="itemDiv">
+
+    </div>
+</body>
+
+</html>

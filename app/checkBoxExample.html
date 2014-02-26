@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="utf-8">
+    <title>Hello World</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
+    <script>
+        function checkBoxController($scope) {
+            $scope.item1 = { itemName: 'item1' , selected: false};
+            $scope.item2 = { itemName: 'item2', selected: false};
+            $scope.selectedItems = function(){
+              var commaSeparator = ($scope.item1.selected && $scope.item2.selected) ? ',' : '';
+              var result = $scope.item1.selected ? $scope.item1.itemName : '';
+              result = result + ($scope.item2.selected ? (commaSeparator + $scope.item2.itemName) : '');
+              return result;
+            }
+        }
+
+    </script>
+</head>
+<body ng-controller="checkBoxController">
+
+Item1: <input type="checkbox" name="checkBoxItems" ng-model="item1.selected"/>
+Item2: <input type="checkbox" name="checkBoxItems" ng-model="item2.selected"/>
+
+<div>
+    Selected Contents are {{selectedItems()}}
+</div>
+</body>
+
+</html>
